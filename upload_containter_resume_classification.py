@@ -744,15 +744,15 @@ if menu_id == 'Resume Parser':
     st.title("RESUME PARSER")
         
     st.subheader('Upload Resume (Single File Accepted) 👇')
-    upload_file3 = st.file_uploader('', type= ['docx'], accept_multiple_files=False)
+    upload_file = st.file_uploader('', type= ['docx'], accept_multiple_files=False)
 
     st.write('*Note: For different Resumes Results Reupload')    
     
-    if upload_file3 is not None:
-        displayed=display(upload_file3)
+    if upload_file is not None:
+        displayed=display(upload_file)
         
         i=0
-        text = extract_text_from_docx(upload_file3)
+        text = extract_text_from_docx(upload_file)
         tokText = tokenText(text)
         df.loc[i,'Name']=extract_name(tokText)
         df.loc[i,'Mobile No.']=extract_mobile_number(text)
